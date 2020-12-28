@@ -6,3 +6,8 @@ that will run on open source or hobby OSs.
 
 The goal is to provide API compatibility with BGI without the requirement of separate
 driver files.  Compatibility would be through a standard series of variables and/or pointers.
+
+Reference Material:
+
+	http://www.bitsavers.org/pdf/borland/borland_C++/Borland_C++_Version_5_Programmers_Guide_1997.pdf
+	http://www.bitsavers.org/pdf/ibm/pc/cards/IBM_VGA_XGA_Technical_Reference_Manual_May92.pdf
