@@ -18,3 +18,9 @@ Functions Implemented:
 
 	int graphresult(void);
 	char * grapherrormsg(int errorcode);
+	void getarccoords(struct arccoordstype *arccoords);
+	void getaspectratio(int *xasp, int *yasp);
+	int getbkcolor(void);
+	int getcolor(void);
+	void setbkcolor(int color);
+	void setcolor(int color);

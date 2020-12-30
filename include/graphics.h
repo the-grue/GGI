@@ -39,6 +39,20 @@ struct status {
 #endif
 };
 
+/*
+ * arccoordstype structure as defined on
+ * page 60 (3)
+ */
+
+struct arccoordstype {
+	int	x;		// Center point x
+	int	y;		// Center point y
+	int	xstart;		// Starting point x
+	int	ystart;		// Starting point y
+	int	xend;		// Ending point x
+	int	yend;		// Ending point y
+};
+
 /* graphics_errors constants as defined on
  * page 312 (1)
  */
@@ -86,11 +100,31 @@ enum COLORS {
 	WHITE
 };
 
+/* Structure for palettetype as defined on
+ * page 84 (3)
+ * colors has been changed from signed char 
+ * to char to hold 255 colors
+ */
+
+#define	MAXCOLORS	255		// 256 Color mode only for palette
+					// High color uses mixed values and no palette
+
+struct palettetype {
+	unsigned char size;
+	unsigned char colors[MAXCOLORS + 1];
+};
+
 /* Function prototypes for callable functions as
  * defined in (3)
  */
 
 char * grapherrormsg(int errorcode);
 int graphresult(void);
+void getarccoords(struct arccoordstype *arccoords);
+void getaspectratio(int *xasp, int *yasp);
+int getbkcolor(void);
+int getcolor(void);
+void setbkcolor(int color);
+void setcolor(int color);
 
 #endif	/* __GRAPHICS_H */
