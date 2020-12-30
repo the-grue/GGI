@@ -2,9 +2,11 @@
 
 CC = gcc
 AS = gcc
+#  Note CFLAGS are currently set for MMURTL
+#  Most likely you will want to change for your OS
 CFLAGS = -std=gnu99 -O0 -nostdlib -m32 -march=i386 -ffreestanding -fno-common -fno-pie -fno-pic -fno-asynchronous-unwind-tables -I../include
 
-SRC =
+SRC = grapherrormsg.c graphresult.c
 
 SRC2 =
 
@@ -25,6 +27,9 @@ libGGI.a: $(OBJ) $(OBJ2)
 	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(OBJ) $(OBJ2) libGGI.a
+	rm -f $(OBJ) $(OBJ2) libGGI.a ../lib/libGGI.a
 
 all: libGGI.a
+
+install: all
+	cp -p libGGI.a ../lib
