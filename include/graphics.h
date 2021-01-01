@@ -4,7 +4,7 @@
  * (1) Borland C++ Version 5 Programmer's Guide
  * (2) BGI.DOC (The BGI Driver Toolkit)
  * (3) Borland C++ Version 4.0 DOS Reference
- * (4) Borland PowerPack for DOS
+ * (4) Borland PowerPack for DOS User's Guide
  * (5) VESA BIOS EXTENSION (VBE) Core Functions Standard Version 3.0
  */
 
