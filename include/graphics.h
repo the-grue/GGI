@@ -4,10 +4,97 @@
  * (1) Borland C++ Version 5 Programmer's Guide
  * (2) BGI.DOC (The BGI Driver Toolkit)
  * (3) Borland C++ Version 4.0 DOS Reference
+ * (4) Borland PowerPack for DOS
+ * (5) VESA BIOS EXTENSION (VBE) Core Functions Standard Version 3.0
  */
 
 #ifndef __GRAPHICS_H
 #define __GRAPHICS_H
+
+/*
+ * VESA Mode Info Block structure as defined on
+ * pages 30-31 (5)
+ */
+
+struct ModeInfoBlock {
+						// * Mandatory for all VBE revisions
+	unsigned short ModeAttributes;		// Mode attributes
+	unsigned char WinAAttributes;		// Window A attributes
+	unsigned char WinBAttributes;		// Window B attributes
+	unsigned short WinGranularity;		// Window granularity
+	unsigned short WinSize;			// Window size
+	unsigned short WinASegment;		// Window A start segment
+	unsigned short WinBSegment;		// Window B start segment
+	unsigned int WinFuncPtr;		// Real mode pointer to window function
+	unsigned short BytesPerScanLine;	// Bytes per scan line
+						// * Mandatory for VBE 1.2 and above
+	unsigned short XResolution;		// Horizontal resolution in pixels or chars
+	unsigned short YResolution;		// Vertical resolution in pixels or chars
+	unsigned char XCharSize;		// Character cell width in pixels
+	unsigned char YCharSize;		// Character cell height in pixels
+	unsigned char NumberOfPlanes;		// Number of memory planes
+	unsigned char BitsPerPixel;		// Bits per pixel
+	unsigned char NumberOfBanks;		// Number of banks
+	unsigned char MemoryModel;		// Memory model type
+	unsigned char BankSize;			// Bank size in KB
+	unsigned char NumberOfImagePages;	// Number of images
+	unsigned char Reserved1;		// Reserved for page function
+						// * Direct Color Fields (direct/6 and YUV/7)
+	unsigned char RedMaskSize;		// Size of direct color red mask in bits
+	unsigned char RedFieldPosition;		// Bit position of lsb of red mask
+	unsigned char GreenMaskSize;		// Size of direct color green mask in bits
+	unsigned char GreenFieldPosition;	// Bit position of lsb of green mask
+	unsigned char BlueMaskSize;		// Size of direct color blue mask in bits
+	unsigned char BlueFieldPosition;	// Bit position of lsb of blue mask
+	unsigned char RsvdMaskSize;		// Size of direct color reserved mask in bits
+	unsigned char RsvdFieldPosition;	// Bit position of lsb of reserved mask
+	unsigned char DirectColorModeInfo;	// Direct color mode attributes
+						// * Mandatory for VBE 2.0 and above
+	unsigned int PhysBasePtr;		// Physical address for flat memory frame buffer
+	unsigned int Reserved2;			// Reserved - always set to 0
+	unsigned short Reserved3;		// Reserved - always set to 0
+						// Mandatory for VBE 3.0 and above
+	unsigned short LinBytesPerScanLine;	// Bytes per scan line for linear modes
+	unsigned char BnkNumberOfImagePages;	// Number of images for banked modes
+	unsigned char LinNumberOfImagePages;	// Number of images for Linear modes
+	unsigned char LinRedMaskSize;		// Size of direct color red mask (linear)
+	unsigned char LinRedFieldPosition;	// Bit position of lsb of red mask (linear)
+	unsigned char LinGreenMaskSize;		// Size of direct color green mask (linear)
+	unsigned char LinGreenFieldPosition;	// Bit position of lsb of green mask (linear)
+	unsigned char LinBlueMaskSize;		// Size of direct color blue mask (linear)
+	unsigned char LinBlueFieldPosition;	// Bit position of lsb of blue mask (linear)
+	unsigned char LinRsvdMaskSize;		// Size of direct color reserved mask (linear)
+	unsigned char LinRsvdFieldPosition;	// Bit position of lsb of reserved mask (linear)
+	unsigned int MaxPixelClock;		// Masimum pixel clock (in Hz) for graphics mode
+
+	unsigned char Reserved4[190];		// Remainder of ModeInfoBlock (256 bytes total)
+} __attribute__ ((packed));
+
+/*
+ * graphics_drivers constants as defined on
+ * page 74 (3) with additions/changes for 
+ * VGA/VESA only as defined on page 113 (4)
+ */
+
+enum graphics_drivers {
+	DETECT  = 0, 		// Autodetect
+	VGA256  = 11, 		// VGA 320x200x256 mode 13h
+	VESA256 = 19		// VESA 256 color modes
+};
+
+/*
+ * graphics_modes numbers as defined on
+ * page 114 (4) replacing RES640x350 with
+ * VGA 320x200 mode 13h as RES320x200
+ */
+
+enum graphics_modes {
+	RES320x200   = 0,	// VGA 320x200x256 mode 13h
+	RES640x480   = 1,	// VESA 640x480x256 mode 101h
+	RES800x600   = 2,	// VESA 800x600x256 mode 103h
+	RES1024x768  = 3,	// VESA 1024x768x256 mode 105h
+	RES1280x1024 = 4	// VESA 1280x1024x256 mode 107h
+};
 
 /*
  * status structure (enhanced) as defined on
@@ -126,5 +213,7 @@ int getbkcolor(void);
 int getcolor(void);
 void setbkcolor(int color);
 void setcolor(int color);
+void initgraph(int *graphdriver, int *graphmode, char *pathtodriver);
+void detectgraph(int *graphdriver, int *graphmode);
 
 #endif	/* __GRAPHICS_H */

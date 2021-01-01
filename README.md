@@ -13,6 +13,9 @@ Reference Material:
 	http://www.bitsavers.org/pdf/ibm/pc/cards/IBM_VGA_XGA_Technical_Reference_Manual_May92.pdf
 	http://www.bitsavers.org/pdf/borland/borland_C++/Borland_C++_Version_4.0_DOS_Reference_Oct93.pdf
 	BGI.DOC from "The BGI Driver Toolkit"
+	Borland PowerPack for DOS
+	VESA BIOS EXTENSION (VBE) Core Functions Standard Version 3.0
+
 
 Functions Implemented:
 
@@ -24,3 +27,5 @@ Functions Implemented:
 	int getcolor(void);
 	void setbkcolor(int color);
 	void setcolor(int color);
+	void initgraph(int *graphdriver, int *graphmode, char *pathtodriver);
+	void detectgraph(int *graphdriver, int *graphmode);
