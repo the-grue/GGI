@@ -29,3 +29,14 @@ Functions Implemented:
 	void setcolor(int color);
 	void initgraph(int *graphdriver, int *graphmode, char *pathtodriver);
 	void detectgraph(int *graphdriver, int *graphmode);
+	int getgraphmode(void);
+	char * getdrivername(void);
+	int getgraphmode(void);
+	int getmaxcolor(void);
+	int getmaxmode(void);
+	int getmaxx(void);
+	int getmaxy(void);
+	char * getmodename(int mode_number);
+	void getmoderange(int graphdriver, int *lomode, int *himode);
+	void getpalette(struct palettetype *palette);
+	int getpalettesize(void);

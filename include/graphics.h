@@ -187,6 +187,26 @@ enum COLORS {
 	WHITE
 };
 
+/* Fill pattern constants defined on
+ * page 61 (3)
+ */
+
+enum fill_patterns {
+	EMPTY_FILL,		// Fill with background color
+	SOLID_FILL,		// Solid fill
+	LINE_FILL,		// Fill with ---
+	LTSLASH_FILL,		// Fill with ///, thin lines
+	SLASH_FILL,		// Fill with ///, thick lines
+	BKSLASH_FILL,		// Fill with \\\, thick lines
+	LTBKSLASH_FILL,		// Fill with \\\, thin lines 
+	HATCH_FILL,		// Light hatch fill
+	XHATCH_FILL,		// Heavy crosshatch fill
+	INTERLEAVE_FILL,	// Interleaving line fill
+	WIDE_DOT_FILL,		// Widely spaced dot fill
+	CLOSE_DOT_FILL,		// Closely spaced dot fill
+	USER_FILL		// User-defined fill pattern
+};
+
 /* Structure for palettetype as defined on
  * page 84 (3)
  * colors has been changed from signed char 
@@ -200,6 +220,15 @@ struct palettetype {
 	unsigned char size;
 	unsigned char colors[MAXCOLORS + 1];
 };
+
+/* GGI Internal Structures
+ */
+
+struct current_gmode {
+        int gdriver;
+        int gmode;
+};
+
 
 /* Function prototypes for callable functions as
  * defined in (3)
@@ -215,5 +244,16 @@ void setbkcolor(int color);
 void setcolor(int color);
 void initgraph(int *graphdriver, int *graphmode, char *pathtodriver);
 void detectgraph(int *graphdriver, int *graphmode);
+int getgraphmode(void);
+char * getdrivername(void);
+int getgraphmode(void);
+int getmaxcolor(void);
+int getmaxmode(void);
+int getmaxx(void);
+int getmaxy(void);
+char * getmodename(int mode_number);
+void getmoderange(int graphdriver, int *lomode, int *himode);
+void getpalette(struct palettetype *palette);
+int getpalettesize(void);
 
 #endif	/* __GRAPHICS_H */
