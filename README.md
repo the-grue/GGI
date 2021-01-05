@@ -7,6 +7,8 @@ that will run on open source or hobby OSs.
 The goal is to provide API compatibility with BGI without the requirement of separate
 driver files.  Compatibility would be through a standard series of variables and/or pointers.
 
+![We have pixels](resources/screenshots/VirtualBox_MMURTL_GUI_04_01_2021_16_04_19.png)
+
 Reference Material:
 
 	http://www.bitsavers.org/pdf/borland/borland_C++/Borland_C++_Version_5_Programmers_Guide_1997.pdf
@@ -40,3 +42,5 @@ Functions Implemented:
 	void getmoderange(int graphdriver, int *lomode, int *himode);
 	void getpalette(struct palettetype *palette);
 	int getpalettesize(void);
+	void closegraph(void);
+	void putpixel(int x, int y, int color);

@@ -4,13 +4,13 @@ CC = gcc
 AS = gcc
 #  Note CFLAGS are currently set for MMURTL
 #  Most likely you will want to change for your OS
-CFLAGS = -std=gnu99 -O0 -nostdlib -m32 -march=i386 -ffreestanding -fno-common -fno-pie -fno-pic -fno-asynchronous-unwind-tables -I../include
+CFLAGS = -std=gnu99 -O0 -nostdlib -m32 -march=i386 -ffreestanding -fno-common -fno-pie -fno-pic -fno-asynchronous-unwind-tables -I../include -DMMURTL
 
 SRC = grapherrormsg.c graphresult.c getarccoords.c getaspectratio.c \
       getbkcolor.c getcolor.c setbkcolor.c setcolor.c initgraph.c \
       getgraphmode.c getdrivername.c getmaxcolor.c getmaxmode.c \
       getmaxx.c getmaxy.c getmodename.c getpalette.c getmoderange.c \
-      getpalettesize.c
+      getpalettesize.c closegraph.c putpixel.c
 
 SRC2 =
 

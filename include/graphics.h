@@ -255,5 +255,7 @@ char * getmodename(int mode_number);
 void getmoderange(int graphdriver, int *lomode, int *himode);
 void getpalette(struct palettetype *palette);
 int getpalettesize(void);
+void closegraph(void);
+void putpixel(int x, int y, int color);
 
 #endif	/* __GRAPHICS_H */

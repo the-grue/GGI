@@ -1,4 +1,5 @@
 #include <graphics.h>
+#include <stdlib.h>
 
 /* GGI doesn't use driver files, so we can co-opt the third parameter
  * to initgraph as a pointer to a valid VESA Mode Info Block
@@ -6,14 +7,18 @@
  * referenced in parentheses
  */
 
-#ifndef NULL
+#ifdef NULL
+#ifdef MMURTL
+#undef NULL
 #define NULL 0
+#endif
 #endif
 
 struct ModeInfoBlock * MIB = NULL;
 struct status status;
 int ingraphics = 0;
 struct current_gmode current_gmode; 
+unsigned int *ylookup = 0;
 
 /* fill blocks as defined in (2)
  */
@@ -59,6 +64,11 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 		current_gmode.gdriver = *graphdriver;
 		current_gmode.gmode = *graphmode;
 		ingraphics = 1;
+
+		ylookup = malloc((status.yres+1) * sizeof(unsigned int));
+
+		for(int counter = 0; counter <= status.yres; counter++)
+			ylookup[counter] = counter * (status.scanlinebytes + 1);
 
 		return;
 	}
@@ -122,6 +132,11 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 				ingraphics = 1;
 				current_gmode.gdriver = *graphdriver;
 				current_gmode.gmode = *graphmode;
+
+				ylookup = malloc((status.yres+1) * sizeof(unsigned int));
+
+				for(int counter = 0; counter <= status.yres; counter++)
+					ylookup[counter] = counter * (status.scanlinebytes + 1);
 			}
                 }
                 else
