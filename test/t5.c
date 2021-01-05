@@ -41,7 +41,7 @@ int main(void)
 	{
 		if(counter % 8 == 0)
 			printf("\n");
-		printf("%d\t", ylookup[counter]);
+		printf("%p\t", (void *) ylookup[counter]);
 	}
 
 	printf("\n");

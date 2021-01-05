@@ -2,6 +2,7 @@
 
 extern unsigned int * ylookup;
 extern struct status status;
+extern struct palettetype palettetype;
 
 void putpixel(int x, int y, int color)
 {
@@ -11,7 +12,11 @@ void putpixel(int x, int y, int color)
 		return;		// Out of bounds, do nothing
 #endif
 
-	pixaddr = (char *) (status.framebuffer + ylookup[y] + x);
+	pixaddr = (char *) (ylookup[y] + x);
 
+#ifdef USEPALETTE
+	*pixaddr = palettetype.colors[color];
+#else
 	*pixaddr = (unsigned char) color;	
+#endif
 }

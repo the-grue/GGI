@@ -41,6 +41,7 @@ int main(void)
 	vmib.YResolution = 768;
 	vmib.BytesPerScanLine = 1024;
 	vmib.PhysBasePtr = 0xDEADC0DE;
+	vmib.BitsPerPixel = 8;
 	initgraph(&gdriver, &gmode, (char *) &vmib);
 	printf("gdriver = %d, gmode = %d\n", gdriver, gmode);
 	printf("%s\n",grapherrormsg(graphresult()));

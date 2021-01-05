@@ -19,6 +19,7 @@ struct status status;
 int ingraphics = 0;
 struct current_gmode current_gmode; 
 unsigned int *ylookup = 0;
+struct palettetype palettetype;
 
 /* fill blocks as defined in (2)
  */
@@ -46,6 +47,11 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 	status.res1[2] = 0x90;
 	status.res1[3] = 0x90;
 
+	palettetype.size = MAXCOLORS;
+
+	for(int counter = 0; counter <= palettetype.size; counter++)
+		palettetype.colors[counter] = (unsigned char) counter;
+
 	if((*graphdriver == VGA256) || ((*graphdriver == DETECT) && (*pathtodriver == NULL)))
 	{
 		*graphmode = RES320x200;	
@@ -68,14 +74,14 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 		ylookup = malloc((status.yres+1) * sizeof(unsigned int));
 
 		for(int counter = 0; counter <= status.yres; counter++)
-			ylookup[counter] = counter * (status.scanlinebytes + 1);
+			ylookup[counter] = (unsigned int) (status.framebuffer + (counter * (status.scanlinebytes + 1)));
 
 		return;
 	}
 	else if(*pathtodriver != NULL)
         {
 		MIB = (struct ModeInfoBlock *) pathtodriver;
-                if(MIB->ModeAttributes & 7)
+                if((MIB->ModeAttributes & 7) && (MIB->BitsPerPixel == 8))
                 {
                         switch(MIB->XResolution) {
                                 case 640:       if(MIB->YResolution == 480) {
@@ -136,7 +142,7 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 				ylookup = malloc((status.yres+1) * sizeof(unsigned int));
 
 				for(int counter = 0; counter <= status.yres; counter++)
-					ylookup[counter] = counter * (status.scanlinebytes + 1);
+					ylookup[counter] = (unsigned int) (status.framebuffer + (counter * (status.scanlinebytes + 1)));
 			}
                 }
                 else
@@ -156,7 +162,7 @@ void detectgraph(int *graphdriver, int *graphmode)
 	}
 	else if(MIB != NULL)
 	{
-		if(MIB->ModeAttributes & 7)
+		if((MIB->ModeAttributes & 7) && (MIB->BitsPerPixel == 8))
 		{
 			switch(MIB->XResolution) {
 				case 640:	if(MIB->YResolution == 480) {
