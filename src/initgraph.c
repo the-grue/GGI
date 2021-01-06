@@ -20,6 +20,7 @@ int ingraphics = 0;
 struct current_gmode current_gmode; 
 unsigned int *ylookup = 0;
 struct palettetype palettetype;
+unsigned char currcolor;
 
 /* fill blocks as defined in (2)
  */
@@ -48,6 +49,7 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 	status.res1[3] = 0x90;
 
 	palettetype.size = MAXCOLORS;
+	currcolor = WHITE;
 
 	for(int counter = 0; counter <= palettetype.size; counter++)
 		palettetype.colors[counter] = (unsigned char) counter;

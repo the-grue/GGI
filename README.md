@@ -9,6 +9,8 @@ driver files.  Compatibility would be through a standard series of variables and
 
 ![We have pixels](resources/screenshots/VirtualBox_MMURTL_GUI_04_01_2021_16_04_19.png)
 
+![We have lines](resources/screenshots/VirtualBox_MMURTL_GUI_05_01_2021_17_04_50.png)
+
 Reference Material:
 
 	http://www.bitsavers.org/pdf/borland/borland_C++/Borland_C++_Version_5_Programmers_Guide_1997.pdf
@@ -44,3 +46,4 @@ Functions Implemented:
 	int getpalettesize(void);
 	void closegraph(void);
 	void putpixel(int x, int y, int color);
+	void line(int x1, int y1, int x2, int y2);

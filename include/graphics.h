@@ -257,5 +257,6 @@ void getpalette(struct palettetype *palette);
 int getpalettesize(void);
 void closegraph(void);
 void putpixel(int x, int y, int color);
+void line(int x1, int y1, int x2, int y2);
 
 #endif	/* __GRAPHICS_H */

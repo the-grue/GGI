@@ -10,7 +10,7 @@ SRC = grapherrormsg.c graphresult.c getarccoords.c getaspectratio.c \
       getbkcolor.c getcolor.c setbkcolor.c setcolor.c initgraph.c \
       getgraphmode.c getdrivername.c getmaxcolor.c getmaxmode.c \
       getmaxx.c getmaxy.c getmodename.c getpalette.c getmoderange.c \
-      getpalettesize.c closegraph.c putpixel.c
+      getpalettesize.c closegraph.c putpixel.c line.c
 
 SRC2 =
 
