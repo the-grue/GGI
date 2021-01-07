@@ -1,5 +1,7 @@
 #include <graphics.h>
 
+#define SAFENSLOW 1
+
 extern unsigned int * ylookup;
 extern struct status status;
 extern struct palettetype palettetype;

@@ -47,3 +47,6 @@ Functions Implemented:
 	void closegraph(void);
 	void putpixel(int x, int y, int color);
 	void line(int x1, int y1, int x2, int y2);
+	unsigned int getpixel(int x, int y);
+	int getx(void);
+	int gety(void);

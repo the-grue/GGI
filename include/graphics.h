@@ -207,6 +207,46 @@ enum fill_patterns {
 	USER_FILL		// User-defined fill pattern
 };
 
+/* Structure for fill settings as defined on
+ * page 61 (3)
+ */
+
+struct fillsettingstype {
+	int pattern;
+	int color;
+};
+
+/* Line style constants defined on
+ * page 63 (3)
+ */
+
+enum line_styles {
+	SOLID_LINE 	= 0,
+	DOTTED_LINE 	= 1,
+	CENTER_LINE 	= 2,
+	DASHED_LINE 	= 3,
+	USERBIT_LINE 	= 4
+};
+
+/* Line thickness constants defined on
+ * page 64 (3)
+ */
+
+enum line_widths {
+	NORM_WIDTH	= 1,
+	THICK_WIDTH	= 3
+};
+
+/* Structure for line settings defined on
+ * page 63 (3)
+ */
+
+struct linesettingstype {
+	int linestyle;
+	unsigned upattern;
+	int thickness;
+};
+
 /* Structure for palettetype as defined on
  * page 84 (3)
  * colors has been changed from signed char 
@@ -258,5 +298,8 @@ int getpalettesize(void);
 void closegraph(void);
 void putpixel(int x, int y, int color);
 void line(int x1, int y1, int x2, int y2);
+unsigned int getpixel(int x, int y);
+int getx(void);
+int gety(void);
 
 #endif	/* __GRAPHICS_H */

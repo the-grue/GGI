@@ -21,6 +21,9 @@ struct current_gmode current_gmode;
 unsigned int *ylookup = 0;
 struct palettetype palettetype;
 unsigned char currcolor;
+unsigned int cp_x, cp_y;
+struct fillsettingstype fillsettingstype;
+struct linesettingstype linesettingstype;
 
 /* fill blocks as defined in (2)
  */
@@ -40,6 +43,11 @@ char fill_blocks[12][8] = {
 	{ 0x88, 0x00, 0x22, 0x00, 0x88, 0x00, 0x22, 0x00 }
 };
 
+/* line style patterns as defined in (2)
+ */
+
+unsigned short line_patterns[5] = { 0xFFFF, 0xCCCC, 0xFC78, 0xF8F8, 0xFFFF };
+
 void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 {
 	status.devtyp = 0;
@@ -50,6 +58,13 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 
 	palettetype.size = MAXCOLORS;
 	currcolor = WHITE;
+	cp_x = 0;
+	cp_y = 0;
+	fillsettingstype.pattern = EMPTY_FILL;
+	fillsettingstype.color = palettetype.colors[0];
+	linesettingstype.linestyle = SOLID_LINE;
+	linesettingstype.upattern = 0;
+	linesettingstype.thickness = NORM_WIDTH;
 
 	for(int counter = 0; counter <= palettetype.size; counter++)
 		palettetype.colors[counter] = (unsigned char) counter;
