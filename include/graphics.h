@@ -247,6 +247,18 @@ struct linesettingstype {
 	int thickness;
 };
 
+/* Ops for putimage function defined on
+ * page 83 (3)
+ */
+
+enum putimage_ops {
+	COPY_PUT,
+	XOR_PUT,
+	OR_PUT,
+	AND_PUT,
+	NOT_PUT
+};
+
 /* Structure for palettetype as defined on
  * page 84 (3)
  * colors has been changed from signed char 
