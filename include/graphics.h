@@ -307,5 +307,6 @@ void moverel(int dx, int dy);
 void moveto(int x, int y);
 void rectangle(int left, int top, int right, int bottom);
 void circle(int x, int y, int radius);
+unsigned int imagesize(int left, int top, int right, int bottom);
 
 #endif	/* __GRAPHICS_H */

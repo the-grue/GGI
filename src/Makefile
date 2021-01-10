@@ -12,7 +12,7 @@ SRC = grapherrormsg.c graphresult.c getarccoords.c getaspectratio.c \
       getmaxx.c getmaxy.c getmodename.c getpalette.c getmoderange.c \
       getpalettesize.c closegraph.c putpixel.c line.c getpixel.c \
       getx.c gety.c linerel.c lineto.c moverel.c moveto.c rectangle.c \
-      circle.c
+      circle.c imagesize.c
 
 SRC2 =
 
