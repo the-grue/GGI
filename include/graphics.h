@@ -301,5 +301,11 @@ void line(int x1, int y1, int x2, int y2);
 unsigned int getpixel(int x, int y);
 int getx(void);
 int gety(void);
+void linerel(int dx, int dy);
+void lineto(int x, int y);
+void moverel(int dx, int dy);
+void moveto(int x, int y);
+void rectangle(int left, int top, int right, int bottom);
+void circle(int x, int y, int radius);
 
 #endif	/* __GRAPHICS_H */

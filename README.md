@@ -11,6 +11,8 @@ driver files.  Compatibility would be through a standard series of variables and
 
 ![We have lines](resources/screenshots/VirtualBox_MMURTL_GUI_05_01_2021_17_04_50.png)
 
+![Circles Rectangles and Linestyles](resources/screenshots/VirtualBox_MMURTL_GUI_09_01_2021_15_58_14.png)
+
 Reference Material:
 
 	http://www.bitsavers.org/pdf/borland/borland_C++/Borland_C++_Version_5_Programmers_Guide_1997.pdf
@@ -50,3 +52,9 @@ Functions Implemented:
 	unsigned int getpixel(int x, int y);
 	int getx(void);
 	int gety(void);
+	void linerel(int dx, int dy);
+	void lineto(int x, int y);
+	void moverel(int dx, int dy);
+	void moveto(int x, int y);
+	void rectangle(int left, int top, int right, int bottom);
+	void circle(int x, int y, int radius);
