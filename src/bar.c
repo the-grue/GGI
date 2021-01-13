@@ -29,10 +29,32 @@ void dobarpattern(int left, int top, int right, int bottom)
 		bottom = swap;	
 	}
 
+	swap = getbkcolor();
+
 	for(width = left; width <= right; width++)
 		for(height = top; height <= bottom; height++)
 			if(((fill_blocks[fillsettingstype.pattern][height&7]) >> (width&7)) & 0x1)
 				putpixel(width, height, fillsettingstype.color);
 			else
-				putpixel(width, height, currcolor);
+				putpixel(width, height, swap);
+}
+
+void bar3d(int left, int top, int right, int bottom, int depth, int topflag)
+{
+	bar(left, top, right, bottom);
+	if(depth > 0)
+	{
+		rectangle(left, top, right, bottom);
+		if(depth > 1)
+		{
+			line(right, bottom, right + depth, bottom - depth);
+			line(right + depth, bottom - depth, right + depth, top - depth);
+		}
+		if(topflag > 0)
+		{
+			line(left, top, left + depth, top - depth);
+			line(right, top, right + depth, top - depth);
+			line(left + depth, top - depth, right + depth, top - depth);
+		}
+	}
 }

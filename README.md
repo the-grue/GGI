@@ -17,6 +17,7 @@ driver files.  Compatibility would be through a standard series of variables and
 
 ![Bars and Fillstyles](resources/screenshots/VirtualBox_MMURTL_GUI_12_01_2021_19_48_01.png)
 
+![3DBars and Fillstyles](resources/screenshots/VirtualBox_MMURTL_GUI_12_01_2021_21_16_38.png)
 
 Reference Material:
 
@@ -67,3 +68,4 @@ Functions Implemented:
 	void getimage(int left, int top, int right, int bottom, void *bitmap);
 	void putimage(int left, int top, void *bitmap, int op);
 	void bar(int left, int top, int right, int bottom);
+	void bar3d(int left, int top, int right, int bottom, int depth, int topflag);
