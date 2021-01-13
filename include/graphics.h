@@ -322,5 +322,6 @@ void circle(int x, int y, int radius);
 unsigned int imagesize(int left, int top, int right, int bottom);
 void getimage(int left, int top, int right, int bottom, void *bitmap);
 void putimage(int left, int top, void *bitmap, int op);
+void bar(int left, int top, int right, int bottom);
 
 #endif	/* __GRAPHICS_H */

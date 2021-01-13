@@ -13,6 +13,11 @@ driver files.  Compatibility would be through a standard series of variables and
 
 ![Circles Rectangles and Linestyles](resources/screenshots/VirtualBox_MMURTL_GUI_09_01_2021_15_58_14.png)
 
+![Bars and Solids](resources/screenshots/VirtualBox_MMURTL_GUI_12_01_2021_19_39_11.png)
+
+![Bars and Fillstyles](resources/screenshots/VirtualBox_MMURTL_GUI_12_01_2021_19_48_01.png)
+
+
 Reference Material:
 
 	http://www.bitsavers.org/pdf/borland/borland_C++/Borland_C++_Version_5_Programmers_Guide_1997.pdf
@@ -61,3 +66,4 @@ Functions Implemented:
 	unsigned int imagesize(int left, int top, int right, int bottom);
 	void getimage(int left, int top, int right, int bottom, void *bitmap);
 	void putimage(int left, int top, void *bitmap, int op);
+	void bar(int left, int top, int right, int bottom);
