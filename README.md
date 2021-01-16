@@ -71,3 +71,5 @@ Functions Implemented:
 	void bar3d(int left, int top, int right, int bottom, int depth, int topflag);
 	void cleardevice(void);
 	void clearviewport(void);
+	void getviewportsettings(struct viewporttype *viewport);
+	void setviewport(int left, int top, int right, int bottom, int clip);
