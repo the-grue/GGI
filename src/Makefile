@@ -13,7 +13,8 @@ SRC = grapherrormsg.c graphresult.c getarccoords.c getaspectratio.c \
       getpalettesize.c closegraph.c putpixel.c line.c getpixel.c \
       getx.c gety.c linerel.c lineto.c moverel.c moveto.c rectangle.c \
       circle.c imagesize.c getimage.c putimage.c bar.c cleardevice.c \
-      getviewsettings.c setviewport.c
+      getviewsettings.c setviewport.c gettextsettings.c settextjustify.c \
+      settextstyle.c
 
 SRC2 =
 

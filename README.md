@@ -73,3 +73,6 @@ Functions Implemented:
 	void clearviewport(void);
 	void getviewportsettings(struct viewporttype *viewport);
 	void setviewport(int left, int top, int right, int bottom, int clip);
+	void gettextsettings(struct textsettingstype *texttypeinfo);
+	void settextjustify(int horiz, int vert);
+	void settextstyle(int font, int direction, int charsize);

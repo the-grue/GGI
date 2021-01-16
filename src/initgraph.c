@@ -25,6 +25,7 @@ unsigned int cp_x, cp_y;
 struct fillsettingstype fillsettingstype;
 struct linesettingstype linesettingstype;
 struct viewporttype viewporttype;
+struct textsettingstype textsettingstype;
 
 /* fill blocks as defined in (2)
  */
@@ -66,6 +67,11 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 	linesettingstype.linestyle = SOLID_LINE;
 	linesettingstype.upattern = 0;
 	linesettingstype.thickness = NORM_WIDTH;
+	textsettingstype.font = DEFAULT_FONT;
+	textsettingstype.direction = HORIZ_DIR;
+	textsettingstype.charsize = 1;
+	textsettingstype.horiz = LEFT_TEXT;
+	textsettingstype.vert = TOP_TEXT;
 
 	for(int counter = 0; counter <= palettetype.size; counter++)
 		palettetype.colors[counter] = (unsigned char) counter;

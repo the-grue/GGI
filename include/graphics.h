@@ -282,6 +282,57 @@ struct viewporttype {
 	int clip;
 };
 
+/* Text justification constants as defined on
+ * page 97 (3)
+ */
+
+enum text_just {
+	LEFT_TEXT	= 0,		// Left justify text
+	CENTER_TEXT	= 1,		// Center text horiz or vert
+	RIGHT_TEXT	= 2,		// Right justify text
+	BOTTOM_TEXT	= 0,		// Justify from bottom
+	TOP_TEXT	= 2		// Justify from top
+};
+
+/* Font name constants as defined on
+ * page 98 (3)
+ */
+
+enum font_names {
+	DEFAULT_FONT	= 0,		// 8x8 bit-mapped font
+	TRIPLEX_FONT	= 1,		// Stroked triplex font
+	SMALL_FONT	= 2,		// Stroked small font
+	SANS_SERIF_FONT	= 3,		// Stroked sans-serif font
+	GOTHIC_FONT	= 4,		// Stroked gothic font
+	SCRIPT_FONT	= 5,		// Stroked script font
+	SIMPLEX_FONT	= 6,		// Stroked simplex font
+	TRIPLEX_SCR_FONT= 7,		// Stroked triplex script font
+	COMPLEX_FONT	= 8,		// Stroked complex font
+	EUROPEAN_FONT	= 9,		// Stroked European font
+	BOLD_FONT	= 10,		// Stroked bold font
+};
+
+/* Direction constants as defined on
+ * page 99 (3)
+ */
+
+enum font_direction {
+	HORIZ_DIR	= 0,		// Left to right
+	VERT_DIR	= 1,		// Bottom to top
+};
+
+/* Structure for textsettingstype as defined on
+ * page 69 (3)
+ */
+
+struct textsettingstype {
+	int font;
+	int direction;
+	int charsize;
+	int horiz;
+	int vert;
+};
+
 /* GGI Internal Structures
  */
 
@@ -337,5 +388,8 @@ void cleardevice(void);
 void clearviewport(void);
 void getviewportsettings(struct viewporttype *viewport);
 void setviewport(int left, int top, int right, int bottom, int clip);
+void gettextsettings(struct textsettingstype *texttypeinfo);
+void settextjustify(int horiz, int vert);
+void settextstyle(int font, int direction, int charsize);
 
 #endif	/* __GRAPHICS_H */
