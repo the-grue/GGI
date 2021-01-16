@@ -41,20 +41,29 @@ void dobarpattern(int left, int top, int right, int bottom)
 
 void bar3d(int left, int top, int right, int bottom, int depth, int topflag)
 {
+	int rd, bd, td, ld;
+
 	bar(left, top, right, bottom);
+
 	if(depth > 0)
 	{
+		rd = right + depth;
+		bd = bottom - depth;
+		td = top - depth;
+		ld = left + depth;
+
 		rectangle(left, top, right, bottom);
+
 		if(depth > 1)
 		{
-			line(right, bottom, right + depth, bottom - depth);
-			line(right + depth, bottom - depth, right + depth, top - depth);
+			line(right, bottom, rd, bd);
+			line(rd, bd, rd, td);
 		}
 		if(topflag > 0)
 		{
-			line(left, top, left + depth, top - depth);
-			line(right, top, right + depth, top - depth);
-			line(left + depth, top - depth, right + depth, top - depth);
+			line(left, top, ld, td);
+			line(right, top, rd, td);
+			line(ld, td, rd, td);
 		}
 	}
 }
