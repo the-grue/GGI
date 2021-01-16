@@ -24,6 +24,7 @@ unsigned char currcolor;
 unsigned int cp_x, cp_y;
 struct fillsettingstype fillsettingstype;
 struct linesettingstype linesettingstype;
+struct viewporttype viewporttype;
 
 /* fill blocks as defined in (2)
  */
@@ -92,6 +93,8 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
 
 		for(int counter = 0; counter <= status.yres; counter++)
 			ylookup[counter] = (unsigned int) (status.framebuffer + (counter * (status.scanlinebytes + 1)));
+
+		cleardevice();
 
 		return;
 	}
@@ -167,6 +170,8 @@ void initgraph(int *graphdriver, int *graphmode, char *pathtodriver)
         }
         else
                 status.stat = grNotDetected;
+
+	cleardevice();
 }
 
 void detectgraph(int *graphdriver, int *graphmode)
