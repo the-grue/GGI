@@ -396,5 +396,7 @@ void gettextsettings(struct textsettingstype *texttypeinfo);
 void settextjustify(int horiz, int vert);
 void settextstyle(int font, int direction, int charsize);
 void outtext(char *textstring);
+int textheight(char *textstring);
+int textwidth(char *textstring);
 
 #endif	/* __GRAPHICS_H */

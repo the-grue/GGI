@@ -79,6 +79,8 @@ Functions Implemented:
 	void settextjustify(int horiz, int vert);
 	void settextstyle(int font, int direction, int charsize);
 	void outtext(char *textstring);
+	int textheight(char *textstring);
+	int textwidth(char *textstring);
 
 GGI Specific Support Functions:
 
