@@ -19,6 +19,8 @@ driver files.  Compatibility would be through a standard series of variables and
 
 ![3DBars and Fillstyles](resources/screenshots/VirtualBox_MMURTL_GUI_12_01_2021_21_16_38.png)
 
+![We have text](resources/screenshots/VirtualBox_MMURTL_GUI_16_01_2021_18_21_59.png)
+
 Reference Material:
 
 	http://www.bitsavers.org/pdf/borland/borland_C++/Borland_C++_Version_5_Programmers_Guide_1997.pdf
@@ -76,6 +78,7 @@ Functions Implemented:
 	void gettextsettings(struct textsettingstype *texttypeinfo);
 	void settextjustify(int horiz, int vert);
 	void settextstyle(int font, int direction, int charsize);
+	void outtext(char *textstring);
 
 GGI Specific Support Functions:
 

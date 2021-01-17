@@ -390,10 +390,11 @@ void bar(int left, int top, int right, int bottom);
 void bar3d(int left, int top, int right, int bottom, int depth, int topflag);
 void cleardevice(void);
 void clearviewport(void);
-void getviewportsettings(struct viewporttype *viewport);
+void getviewsettings(struct viewporttype *viewport);
 void setviewport(int left, int top, int right, int bottom, int clip);
 void gettextsettings(struct textsettingstype *texttypeinfo);
 void settextjustify(int horiz, int vert);
 void settextstyle(int font, int direction, int charsize);
+void outtext(char *textstring);
 
 #endif	/* __GRAPHICS_H */
