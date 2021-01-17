@@ -341,6 +341,10 @@ struct current_gmode {
         int gmode;
 };
 
+/* GGI specific function prototypes
+ */
+
+void setsystemfont(unsigned char *userfont);
 
 /* Function prototypes for callable functions as
  * defined in (3)

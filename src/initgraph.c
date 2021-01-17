@@ -26,6 +26,7 @@ struct fillsettingstype fillsettingstype;
 struct linesettingstype linesettingstype;
 struct viewporttype viewporttype;
 struct textsettingstype textsettingstype;
+unsigned char * systemfont = NULL;
 
 /* fill blocks as defined in (2)
  */

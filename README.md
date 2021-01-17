@@ -76,3 +76,7 @@ Functions Implemented:
 	void gettextsettings(struct textsettingstype *texttypeinfo);
 	void settextjustify(int horiz, int vert);
 	void settextstyle(int font, int direction, int charsize);
+
+GGI Specific Support Functions:
+
+	void setsystemfont(unsigned char *userfont);
