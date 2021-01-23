@@ -30,3 +30,18 @@ void outtext(char *textstring)
 		cp_x = cp_x + 8;
 	}
 }
+
+void outtextxy(int x, int y, char *textstring)
+{
+	int savex, savey;
+
+	savex = cp_x;
+	cp_x = x;
+	savey = cp_y;
+	cp_y = y;
+
+	outtext(textstring);
+
+	cp_x = savex;
+	cp_y = savey;
+}

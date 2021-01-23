@@ -84,6 +84,7 @@ Functions Implemented:
 	int textheight(char *textstring);
 	int textwidth(char *textstring);
 	void drawpoly(int numpoints, int *polypoints);
+	void outtextxy(int x, int y, char *textstring);
 
 GGI Specific Support Functions:
 
