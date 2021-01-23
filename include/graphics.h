@@ -398,5 +398,6 @@ void settextstyle(int font, int direction, int charsize);
 void outtext(char *textstring);
 int textheight(char *textstring);
 int textwidth(char *textstring);
+void drawpoly(int numpoints, int *polypoints);
 
 #endif	/* __GRAPHICS_H */
