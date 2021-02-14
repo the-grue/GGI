@@ -31,6 +31,7 @@ Reference Material:
 	BGI.DOC from "The BGI Driver Toolkit"
 	Borland PowerPack for DOS User's Guide
 	VESA BIOS EXTENSION (VBE) Core Functions Standard Version 3.0
+	FE.DOC from "The BGI Driver Toolkit"
 
 
 Functions Implemented:
